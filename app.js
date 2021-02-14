@@ -63,6 +63,7 @@ $(function () {
       fontSize: '2em',
       color: 'white',
       display: 'inline-block',
+      cursor: 'pointer',
     });
     $('.cell').each(function () {
       $(this).css({ backgroundColor: addNewColor() });
@@ -88,8 +89,9 @@ $(function () {
       $(this).text(countValue);
       $(this).css('background-color', addNewColor());
       pickMyColor();
+      $('#message').html('Correct - Great 👍');
     } else {
-      console.log('incorrect');
+      $('#message').html('Sorry - Wrong Color 👎');
     }
   }
 
