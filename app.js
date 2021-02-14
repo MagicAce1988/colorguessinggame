@@ -96,7 +96,7 @@ $(function () {
   }
 
   $('body').css({
-    height: 'calc(100vh / 1.5)',
+    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
