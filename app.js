@@ -35,6 +35,12 @@ $(function () {
     $('#gameArea').show();
   }
 
+  function addNewColor() {
+    var trackColor = randomColor();
+    colorArray.push(trackColor);
+    return trackColor;
+  }
+
   function makeBoard() {
     const x = 4;
     let html = '';
@@ -59,9 +65,7 @@ $(function () {
       display: 'inline-block',
     });
     $('.cell').each(function () {
-      const trackColor = randomColor();
-      colorArray.push(trackColor);
-      $(this).css({ backgroundColor: trackColor });
+      $(this).css({ backgroundColor: addNewColor() });
     });
   }
 
@@ -78,6 +82,15 @@ $(function () {
 
   function checkCell() {
     const cellColor = $(this).css('background-color');
+    if (cellColor === $('#findMe').css('background-color')) {
+      let countValue = +$(this).text();
+      countValue++;
+      $(this).text(countValue);
+      $(this).css('background-color', addNewColor());
+      pickMyColor();
+    } else {
+      console.log('incorrect');
+    }
   }
 
   $('body').css({
